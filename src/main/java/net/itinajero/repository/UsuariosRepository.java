@@ -12,10 +12,6 @@ public interface UsuariosRepository extends JpaRepository<Usuario, Integer> {
 	Usuario findByUsername(String username);
 	List<Usuario> findByFechaRegistroNotNull();
 	
-	if (null == List || List.isEmpty() ) {
-            throw new UsernameNotFoundException("Username not found");
-        }
-	
 	@Modifying
     @Query("UPDATE Usuario u SET u.estatus=0 WHERE u.id = :paramIdUsuario")
     int lock(@Param("paramIdUsuario") int idUsuario);
