@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "railway.perfiles")
+@Table(name = "perfiles")
 public class Perfil {
 
 	@Id
