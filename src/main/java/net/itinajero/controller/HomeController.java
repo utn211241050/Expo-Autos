@@ -62,10 +62,6 @@ public class HomeController {
 		// Como el usuario ya ingreso, ya podemos agregar a la session el objeto usuario.
 		String username = authentication.getName();		
 		
-		for(GrantedAuthority rol: authentication.getAuthorities()) {
-			System.out.println("ROL: " + rol.getAuthority());
-		}
-		
 		if (session.getAttribute("usuario") == null){
 			Usuario usuario = serviceUsuarios.buscarPorUsername(username);	
 			//System.out.println("Usuario: " + usuario);
