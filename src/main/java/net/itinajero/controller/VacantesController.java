@@ -30,7 +30,7 @@ import net.itinajero.util.Utileria;
 @RequestMapping(value="/vacantes")
 public class VacantesController {
 	
-	@Value("${empleosapp.ruta.images}")
+	@Value("${empleosapp.ruta.imagenes}")
 	private String ruta;
 	
 	// Inyectamos una instancia desde nuestro ApplicationContext
