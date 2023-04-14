@@ -20,7 +20,7 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery("select username, password, estatus from Usuarios where username=?")
