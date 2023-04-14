@@ -20,15 +20,17 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 	private DataSource dataSource;
 
 	@Override
-	private void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.jdbcAuthentication().dataSource(dataSource)
 		.usersByUsernameQuery("select username, password, estatus from usuarios where username=?")
-		.authoritiesByUsernameQuery("select u.username, p.perfil from usuarioPerfil up " + 
+		.authoritiesByUsernameQuery("select u.username, p.perfil from usuarioperfil up " + 
 			"inner join usuarios u on u.id = up.idusuario " + 
 			"inner join perfiles p on p.id = up.idperfil " + 
 			"where u.username = ?");
 	}
+	
+	
 
 	/**
 	 * Personalizamos el Acceso a las URLs de la aplicación
