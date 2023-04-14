@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name = "railway.usuarios")
 public class Usuario {
 
 	@Id
@@ -34,7 +34,7 @@ public class Usuario {
 	// Relacion ManyToMany (Un usuario tiene muchos perfiles)
 	// Por defecto Fetch es FetchType.LAZY
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "usuarioperfil", // tabla intermedia
+	@JoinTable(name = "railway.usuarioperfil", // tabla intermedia
 			joinColumns = @JoinColumn(name = "idUsuario"), // foreignKey en la tabla de UsuarioPerfil
 			inverseJoinColumns = @JoinColumn(name = "idPerfil") // foreignKey en la tabla de UsuarioPerfil
 	
