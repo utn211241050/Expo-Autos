@@ -60,7 +60,11 @@ public class HomeController {
 	public String mostrarIndex(Authentication authentication, HttpSession session) {		
 		
 		// Como el usuario ya ingreso, ya podemos agregar a la session el objeto usuario.
-		String username = authentication.getName();		
+		String username = authentication.getName();	
+		
+		for(GrantedAuthority rol: authentication.getAuthorities()) {
+			System.out.println("ROL: " + rol.getAuthority());
+		}
 		
 		if (session.getAttribute("usuario") == null){
 			Usuario usuario = serviceUsuarios.buscarPorUsername(username);	
